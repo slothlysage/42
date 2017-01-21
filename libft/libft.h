@@ -6,7 +6,7 @@
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 14:33:29 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/18 16:09:18 by sjones           ###   ########.fr       */
+/*   Updated: 2017/01/20 16:05:59 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
-	struct s_slist	*next;
+	struct s_list	*next;
 }					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);
@@ -75,10 +75,14 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-t_list				*ftlstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int					ft_intlen(int n);
+int					ft_intabs(int n);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_strcmpp(const char *s1, const char *s2);
 int					ft_wordcnt(const char *s, char c);

@@ -6,7 +6,7 @@
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/06 16:23:13 by sjones           ###   ########.fr       */
+/*   Updated: 2017/01/19 18:30:09 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		temp = -temp;
 	}
-	if (temp > 10)
+	if (temp > 9)
 	{
 		ft_putnbr_fd(temp / 10, fd);
 		ft_putnbr_fd(temp % 10, fd);

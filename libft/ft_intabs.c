@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_intabs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/19 18:29:52 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/20 13:45:08 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/20 13:49:08 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int		ft_intabs(int n)
 {
-	long	temp;
-
-	temp = n;
-	if (temp < 0)
-	{
-		ft_putchar('-');
-		temp = -temp;
-	}
-	if (temp > 9)
-	{
-		ft_putnbr(temp / 10);
-		ft_putnbr(temp % 10);
-	}
-	else
-		ft_putchar(temp + 48);
+	return (n > 0 ? (n) : (-n));
 }

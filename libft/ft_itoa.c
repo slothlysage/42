@@ -6,7 +6,7 @@
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 15:26:36 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/18 15:55:41 by sjones           ###   ########.fr       */
+/*   Updated: 2017/01/20 13:18:51 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ char					*ft_itoa(int n)
 	l = ft_nbrlen(n);
 	if (!(ret = (n == 0 ? (ft_strnew(1)) : (ft_strnew(l)))))
 		return (NULL);
-	return (n == 0 ? ("0\0") : (ft_isnbr(n, ret, l)));
+	return (n == 0 ? (ft_strdup("0")) : (ft_isnbr(n, ret, l)));
 }

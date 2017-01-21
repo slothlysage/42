@@ -6,7 +6,7 @@
 #    By: sjones <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 13:39:25 by sjones            #+#    #+#              #
-#    Updated: 2017/01/18 15:47:50 by sjones           ###   ########.fr        #
+#    Updated: 2017/01/20 14:55:59 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,14 @@ SRCS = 	ft_memset.c		\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c	\
+		ft_lstnew.c		\
+		ft_lstdelone.c	\
+		ft_lstdel.c		\
+		ft_lstadd.c		\
+		ft_lstiter.c	\
+		ft_lstmap.c		\
+		ft_intlen.c		\
+		ft_intabs.c		\
 		ft_strndup.c	\
 		ft_strcmpp.c	\
 		ft_wordcnt.c	\
@@ -121,6 +129,14 @@ OBJS =	ft_memset.o		\
 		ft_putstr_fd.o	\
 		ft_putendl_fd.o	\
 		ft_putnbr_fd.o	\
+		ft_lstnew.o		\
+		ft_lstdelone.o	\
+		ft_lstdel.o		\
+		ft_lstadd.o		\
+		ft_lstiter.o	\
+		ft_lstmap.o		\
+		ft_intlen.o		\
+		ft_intabs.o		\
 		ft_strndup.o	\
 		ft_strcmpp.o	\
 		ft_wordcnt.o	\
