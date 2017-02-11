@@ -6,11 +6,12 @@
 #    By: sjones <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/10 20:39:10 by sjones            #+#    #+#              #
-#    Updated: 2017/02/10 21:29:47 by sjones           ###   ########.fr        #
+#    Updated: 2017/02/10 21:59:29 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-if $(id -u) != 0; then exit 1 fi
+if $(id -u) != 0; then exit 1
+fi
 sed -i 's/# deb cdrom/deb cdrom/' /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get upgrade
