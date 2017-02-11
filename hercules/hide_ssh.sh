@@ -6,7 +6,7 @@
 #    By: sjones <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/10 20:39:10 by sjones            #+#    #+#              #
-#    Updated: 2017/02/10 22:07:05 by sjones           ###   ########.fr        #
+#    Updated: 2017/02/10 22:09:01 by sjones           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,5 +16,5 @@ sed -i 's/deb cdrom/# deb cdrom/' /etc/apt/sources.list
 apt-get update
 apt-get upgrade
 apt-get install openssh-server
-sed -i 's/port 22/port 65521/' /etc/ssh/sshd_config
+sed -i 's/Port 22/Port 65521/' /etc/ssh/sshd_config
 service ssh restart
