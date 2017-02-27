@@ -3,11 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeftekha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/02 16:06:22 by jeftekha          #+#    #+#             */
-/*   Updated: 2017/02/07 19:56:43 by sjones           ###   ########.fr       */
-/*   Updated: 2017/02/06 14:16:17 by jeftekha         ###   ########.fr       */
+/*   Created: 2017/02/10 15:32:59 by sjones            #+#    #+#             */
+/*   Updated: 2017/02/26 16:40:18 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +22,38 @@
 typedef	struct		s_tet
 {
 	char			*p;
-	char			w[5];
-	char			h[5];
-	char			*t;
-	int				h1;
-	int				h2;
-	int				h3;
-	int				h4;
+	int				*h;
+	int				*l;
+	int				s;
 	struct s_tet	*next;
 }					t_tet;
 
-t_tet	*ft_newtet(char *p);
-void	ft_list_push_back(t_tet **begin_list, void *data);
-int		ft_read(t_tet *tet, int fd);
-int		validate(t_tet *tet);
-int		minbrdsize(t_tet *t);
-int		ft_sqrtr(int n);
-int		ft_lstlen(t_tet *t);
-char	*ft_mkbrd(int c);
-void	trim(t_tet *t);
+typedef struct		s_brd
+{
+	char			*m;
+	int				i;
+	int				l;
+}					t_brd;
+
+t_tet				*ft_newtet(char *p);
+void				ft_list_push_back(t_tet **begin_list, void *data);
+int					ft_read(t_tet *tet, int fd);
+int					validate_tet(char *t);
+int					validate_dot(char *t);
+int					validate_map(t_brd *b, char a);
+int					minbrdsize(t_tet *t);
+int					ft_sqrtr(int n);
+int					ft_lstlen(t_tet *t);
+t_brd				*ft_mkbrd(int c);
+t_brd				*brdup(t_brd *map);
+void				trim(t_tet *tet);
+int					trim_help(char *t);
+int					if_fits(t_brd *b, t_tet *t, char a);
+void				put_tet(t_brd *b, t_tet *t, char a);
+void				rm_tet(t_brd *b, char a);
+void				solve(t_tet *t);
+int					solver(t_brd *b, t_tet *t, char a);
+void				ft_putbrd(t_brd *map);
+void				set_l(t_brd *b, t_tet *t);
 
 #endif

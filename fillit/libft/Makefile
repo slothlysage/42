@@ -6,7 +6,7 @@
 #    By: sjones <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 13:39:25 by sjones            #+#    #+#              #
-#    Updated: 2017/01/20 14:55:59 by sjones           ###   ########.fr        #
+#    Updated: 2017/02/15 16:01:14 by jeftekha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -160,7 +160,4 @@ fclean: clean
 
 re: fclean all
 
-nice: re
-	rm -rf $(OBJS)
-
-.PHONEY: all clean fclean re nice
+.PHONY: all clean fclean re
