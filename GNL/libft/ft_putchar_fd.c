@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr2.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/10 16:43:45 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/17 12:37:06 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/06 15:10:38 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/10 19:01:04 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr2(const char *big, const char *little)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*b;
-	char	*l;
-	char	*t;
-
-	b = (char*)big;
-	l = (char*)little;
-	t = NULL;
-	if (b < l)
-		return (t);
-	if (!(l))
-		return (b);
-	while (*b)
-	{
-		if (ft_memcmp(b, l, ft_strlen(l)) == 0)
-			return (b);
-		b++;
-	}
-	return (t);
+	write(fd, &c, 1);
 }

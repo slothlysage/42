@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/20 17:46:43 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/11 19:46:34 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/20 15:18:41 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	**ft_strsplit(char const *s, char c)
 {
-	long	temp;
+	char	**ret;
+	char	*t;
+	int		i;
 
-	temp = n;
-	if (temp < 0)
+	if (s != NULL)
 	{
-		ft_putchar_fd('-', fd);
-		temp = -temp;
+		i = 0;
+		t = (char*)s;
+		if (!(ret = (char**)malloc(sizeof(char*) * ft_wordcnt(s, c) + 1)))
+			return (NULL);
+		while (*t && (i < ft_wordcnt(s, c)))
+		{
+			while (*t == c)
+				t++;
+			if (!(ret[i++] = ft_strndup(t, ft_wordlen(t, c))))
+				return (NULL);
+			while (*t != c)
+				t++;
+		}
+		ret[i] = NULL;
+		return (ret);
 	}
-	if (temp > 9)
-	{
-		ft_putnbr_fd(temp / 10, fd);
-		ft_putnbr_fd(temp % 10, fd);
-	}
-	else
-		ft_putchar_fd(temp + '0', fd);
+	return (NULL);
 }

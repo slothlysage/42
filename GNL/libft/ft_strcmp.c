@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/20 17:46:43 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/10 17:21:38 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/11 13:31:29 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	long	temp;
+	int		l;
 
-	temp = n;
-	if (temp < 0)
-	{
-		ft_putchar_fd('-', fd);
-		temp = -temp;
-	}
-	if (temp > 9)
-	{
-		ft_putnbr_fd(temp / 10, fd);
-		ft_putnbr_fd(temp % 10, fd);
-	}
-	else
-		ft_putchar_fd(temp + '0', fd);
+	l = ((ft_strlen(s1) > ft_strlen(s2)) ? ft_strlen(s2) : ft_strlen(s1));
+	return (ft_memcmp(s1, s2, (l + 1)));
 }

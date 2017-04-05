@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_ft_strnequ.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/20 17:46:43 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/11 13:12:33 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/19 14:02:20 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	long	temp;
-
-	temp = n;
-	if (temp < 0)
+	if (s1 && s2)
 	{
-		ft_putchar_fd('-', fd);
-		temp = -temp;
+		if (n == 0)
+			return (1);
+		return ((ft_strncmp(s1, s2, n) == 0) ? (1) : (0));
 	}
-	if (temp > 9)
-	{
-		ft_putnbr_fd(temp / 10, fd);
-		ft_putnbr_fd(temp % 10, fd);
-	}
-	else
-		ft_putchar_fd(temp + '0', fd);
+	return (0);
 }

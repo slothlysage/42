@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/20 17:46:43 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/11 13:36:33 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/29 14:36:52 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	long	temp;
+	unsigned char	*t1;
+	unsigned char	*t2;
 
-	temp = n;
-	if (temp < 0)
+	t1 = (unsigned char*)s1;
+	t2 = (unsigned char*)s2;
+	while (*t1 && *t2 && (n > 0))
 	{
-		ft_putchar_fd('-', fd);
-		temp = -temp;
+		if ((*t1 != *t2))
+			return ((int)(*t1 - *t2));
+		if (*t1 == *t2 && (n > 0))
+			n--;
+		t1++;
+		t2++;
 	}
-	if (temp > 9)
-	{
-		ft_putnbr_fd(temp / 10, fd);
-		ft_putnbr_fd(temp % 10, fd);
-	}
-	else
-		ft_putchar_fd(temp + '0', fd);
+	if (n)
+		return ((int)(*t1 - *t2));
+	if ((n == 0) || ((*t1 == '\0') && (*t2 == '\0')))
+		return (0);
+	return (0);
 }

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   strndup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/20 17:46:43 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/05 14:01:41 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/20 15:15:35 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	long	temp;
+	char	*str;
+	char	*temp;
 
-	temp = n;
-	if (temp < 0)
+	if (!(str = (char*)malloc(sizeof(char) * (n + 1))))
+		return (NULL);
+	temp = str;
+	while (n > 0)
 	{
-		ft_putchar_fd('-', fd);
-		temp = -temp;
+		*temp = *s1;
+		temp++;
+		s1++;
+		n--;
 	}
-	if (temp > 9)
-	{
-		ft_putnbr_fd(temp / 10, fd);
-		ft_putnbr_fd(temp % 10, fd);
-	}
-	else
-		ft_putchar_fd(temp + '0', fd);
+	*temp = '\0';
+	return (str);
 }

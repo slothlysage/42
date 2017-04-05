@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_wordcnt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 15:34:07 by sjones            #+#    #+#             */
-/*   Updated: 2017/01/20 17:46:43 by sjones           ###   ########.fr       */
+/*   Created: 2017/01/11 19:28:34 by sjones            #+#    #+#             */
+/*   Updated: 2017/01/17 14:11:37 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int		ft_wordcnt(const char *s, char c)
 {
-	long	temp;
+	char	*t;
+	int		r;
 
-	temp = n;
-	if (temp < 0)
+	t = (char*)s;
+	r = 0;
+	while (*t)
 	{
-		ft_putchar_fd('-', fd);
-		temp = -temp;
+		if ((*t != c) && ((*(t + 1) == c) || (!(*(t + 1)))))
+			r++;
+		t++;
 	}
-	if (temp > 9)
-	{
-		ft_putnbr_fd(temp / 10, fd);
-		ft_putnbr_fd(temp % 10, fd);
-	}
-	else
-		ft_putchar_fd(temp + '0', fd);
+	return (r);
 }
