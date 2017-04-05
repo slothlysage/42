@@ -1,20 +1,25 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    hide_ssh.sh                                        :+:      :+:    :+:    #
+#    salamahenagalabadoun.s                             :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sjones <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: gjestin <gjestin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/02/10 20:39:10 by sjones            #+#    #+#              #
-#    Updated: 2017/02/10 22:09:01 by sjones           ###   ########.fr        #
+#    Created: 2014/02/21 22:08:42 by gjestin           #+#    #+#              #
+#    Updated: 2014/02/25 21:02:17 by gjestin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-if $(id -u) != 0; then exit 1
-fi
-sed -i 's/deb cdrom/# deb cdrom/' /etc/apt/sources.list
-apt-get update
-apt-get upgrade
-apt-get install openssh-server
-sed -i 's/Port 22/Port 65521/' /etc/ssh/sshd_config
-service ssh restart
+.name "salamahenagalabadoun"
+.comment "sussKBO hin hin"
+
+ld		32, r3
+ld		4, r4
+ld		190, r5
+st		r1, 6
+loop:
+live	%666
+sti		r5, r5, r3
+add		r3, r4, r5
+ld		%0, r16
+zjmp	%:loop
